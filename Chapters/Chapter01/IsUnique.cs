@@ -73,6 +73,7 @@ namespace Chapters.Chapter01
 
         private static bool BitBased(string input)
         {
+            //TODO we only need this extra logic if we don;t know what are chars limitations and need to guess index rnge ourselves
             var codes = new int[input.Length];
             var maxCode = 0;
             for (int i = 0; i < input.Length; i++)
