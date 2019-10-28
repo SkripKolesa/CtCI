@@ -17,7 +17,7 @@ namespace Chapters.Chapter01
     public static class IsUnique
     {
         public static bool HasOnlyUniqueChars(this string input,
-                                              Implementation implementation = Implementation.BitBased)
+                                              Implementation implementation = Implementation.HashBased)
         {
             return implementation switch
             {
