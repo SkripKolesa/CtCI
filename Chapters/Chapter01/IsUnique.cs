@@ -1,17 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Chapters.Chapter01
 {
     /// <summary>
-    /// Implement an algorithm to determine if a string has all unique characters.
+    /// 1.1 Implement an algorithm to determine if a string has all unique characters.
     /// What if you can't use additional data structures?
     /// </summary>
     public static class IsUnique
