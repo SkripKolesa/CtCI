@@ -91,14 +91,15 @@ namespace Chapters.Chapter01
 
             return true;
         }
+        public enum Implementation
+        {
+            None = 0,
+            Naive,
+            NaiveParallel,
+            HashBased,
+            BitBased
+        }
     }
 
-    public enum Implementation
-    {
-        None = 0,
-        Naive = 1,
-        NaiveParallel = 2,
-        HashBased = 3,
-        BitBased = 4
-    }
+  
 }
