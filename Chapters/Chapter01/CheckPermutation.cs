@@ -9,7 +9,7 @@ namespace Chapters.Chapter01
     public static class CheckPermutation
     {
         public static bool IsPermutationOf(this string a, string b,
-                                           Implementation implementation = Implementation.SortBased)
+                                           Implementation implementation = Implementation.HashBased)
         {
             return implementation switch
             {
