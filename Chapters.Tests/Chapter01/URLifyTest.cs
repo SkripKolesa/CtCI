@@ -1,4 +1,3 @@
-using System;
 using System.Linq;
 using Chapters.Chapter01;
 using Xunit;
@@ -25,7 +24,8 @@ namespace Chapters.Tests.Chapter01
                 chInput[i] = arr[i];
             }
 
-            var actual = new string(URLify.ReplaceSpaces(chInput, arr.Length));
+            URLify.Replace(chInput, arr.Length);
+            var actual = new string(chInput);
             Assert.Equal(input.Replace(" ", "%20"), actual);
         }
     }

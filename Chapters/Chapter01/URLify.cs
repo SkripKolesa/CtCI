@@ -1,4 +1,4 @@
-using System;
+using System.Collections.Generic;
 
 namespace Chapters.Chapter01
 {
@@ -9,9 +9,34 @@ namespace Chapters.Chapter01
     /// </summary>
     public static class URLify
     {
-        public static char[] ReplaceSpaces(char[] input, int contentLength)
+        private static readonly Dictionary<char, string> Replacements = new Dictionary<char, string>
+                                                                        {
+                                                                            {' ', "%20"}
+                                                                        };
+
+        public static void Replace(char[] str, int contentLength)
         {
-            throw new NotImplementedException();
+            var currentContentIdx = contentLength - 1;
+            var currentResultIdx = str.Length - 1;
+            while (currentContentIdx >= 0)
+            {
+                var currentChar = str[currentContentIdx];
+                if (Replacements.TryGetValue(currentChar, out var replacement))
+                {
+                    for (int i = replacement.Length - 1; i >= 0; i--)
+                    {
+                        str[currentResultIdx] = replacement[i];
+                        currentResultIdx--;
+                    }
+                }
+                else
+                {
+                    str[currentResultIdx] = currentChar;
+                    currentResultIdx--;
+                }
+
+                currentContentIdx--;
+            }
         }
     }
 }
