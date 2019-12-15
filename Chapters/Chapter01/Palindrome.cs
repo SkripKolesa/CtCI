@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Chapters.Chapter01
 {
@@ -11,7 +13,22 @@ namespace Chapters.Chapter01
     {
         public static bool CanBePalindrome(this string input)
         {
-            throw new NotImplementedException();
+            var pairlessItems = new Dictionary<char, bool>();
+            foreach (var ch in input.ToLower())
+            {
+                if (!Char.IsLetterOrDigit(ch)) continue;
+                if (pairlessItems.TryGetValue(ch, out var hasPair))
+                {
+                    pairlessItems[ch] = !hasPair;
+                }
+                else
+                {
+                    pairlessItems[ch] = false;
+                }
+            }
+
+            var nonPairedItemsCount = pairlessItems.Values.Count(p => !p);
+            return nonPairedItemsCount <= 1;
         }
     }
 }
