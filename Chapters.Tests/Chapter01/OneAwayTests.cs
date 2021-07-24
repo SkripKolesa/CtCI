@@ -1,5 +1,6 @@
 using Chapters.Chapter01;
 using Xunit;
+
 namespace Chapters.Tests.Chapter01
 {
     public class OneAwayTests
@@ -15,10 +16,11 @@ namespace Chapters.Tests.Chapter01
         [InlineData("pales", "pale")]
         [InlineData("pale", "pales")]
         [InlineData("pale", "bale")]
+        [InlineData("pale", "pake")]
         public void IsOneAway(string a, string b)
         {
-            Assert.True(a.IsOneAwayFrom(b));
-            Assert.True(b.IsOneAwayFrom(a));
+            Assert.True(a.IsOneOrZeroAwayFrom(b));
+            Assert.True(b.IsOneOrZeroAwayFrom(a));
         }
 
         [Theory]
@@ -26,11 +28,12 @@ namespace Chapters.Tests.Chapter01
         [InlineData("a", "abc")]
         [InlineData("pale", "bake")]
         [InlineData("pale", "")]
-        public void NonPalindromePermutationIsNot(string a, string b)
+        [InlineData("", "ab")]
+        [InlineData("paka", "pa")]
+        public void NotIsOneAway(string a, string b)
         {
-            Assert.False(a.IsOneAwayFrom(b));
-            Assert.False(b.IsOneAwayFrom(a));
+            Assert.False(a.IsOneOrZeroAwayFrom(b));
+            Assert.False(b.IsOneOrZeroAwayFrom(a));
         }
-        
     }
 }
