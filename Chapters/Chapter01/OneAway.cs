@@ -1,5 +1,4 @@
 using System;
-using System.Diagnostics;
 
 namespace Chapters.Chapter01
 {
@@ -36,12 +35,20 @@ namespace Chapters.Chapter01
 
         private static bool IsOneReplace(string a, string b)
         {
-            return a.Length == b.Length && IsReplace(a, b);
+            return a.Length == b.Length && HasOneReplace(a, b);
         }
 
-        private static bool IsReplace(string a, string b)
+        private static bool HasOneReplace(string a, string b)
         {
-            throw new NotImplementedException();
+            var hasReplace = false;
+            for (int i = 0; i < a.Length; i++)
+            {
+                if (a[i] == b[i]) continue;
+                if (hasReplace) return false;
+                hasReplace = true;
+            }
+
+            return hasReplace;
         }
 
         private static bool IsOneChange(string a, string b)
