@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Chapters.Chapter01
 {
@@ -10,7 +12,18 @@ namespace Chapters.Chapter01
     {
         public static int[,] Rotate90(int[,] a)
         {
-            throw new NotImplementedException("Rotate90");
+            var n = a.GetLength(0);
+            var copy = new int[n, n];
+
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    copy[i, j] = a[n - 1 - j, i];
+                }
+            }
+
+            return copy;
         }
     }
 }
