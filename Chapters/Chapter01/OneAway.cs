@@ -3,7 +3,7 @@ using System;
 namespace Chapters.Chapter01
 {
     /// <summary>
-    /// There are three types of edits that can be performed on strings: insert a character, remove a character,
+    /// 1.5 There are three types of edits that can be performed on strings: insert a character, remove a character,
     /// or replace a character. Given two strings, write a function to check if they are one edit (or zero edits) away.
     /// </summary>
     public static class OneAway
