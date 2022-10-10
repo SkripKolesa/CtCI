@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace Chapters.Chapter01
 {
     /// <summary>
-    /// 1.1 Implement an algorithm to determine if a string has all unique characters.
+    /// 1.1 Is Unique: Implement an algorithm to determine if a string has all unique characters.
     /// What if you can't use additional data structures?
     /// </summary>
     public static class IsUnique

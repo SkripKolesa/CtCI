@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace Chapters.Chapter01
 {
     /// <summary>
-    /// 1.2 Given two strings, write a method to decide if one is a permutation of the other.
+    /// 1.2 Check Permutation: Given two strings, write a method to decide if one is a permutation of the other.
     /// </summary>
     public static class CheckPermutation
     {
