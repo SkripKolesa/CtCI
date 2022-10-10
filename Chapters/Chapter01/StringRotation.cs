@@ -11,7 +11,9 @@ namespace Chapters.Chapter01
     {
         public static bool IsRotation(string s1, string s2)
         {
-            throw new NotImplementedException();
+            if (s1.Length != s2.Length) return false;
+            var s2doubled = s2 + s2;
+            return s2doubled.Contains(s1, StringComparison.Ordinal);
         }
     }
 }

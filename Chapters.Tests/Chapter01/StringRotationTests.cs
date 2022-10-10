@@ -8,7 +8,9 @@ namespace Chapters.Tests.Chapter01
         [Theory]
         [InlineData("","")]
         [InlineData("a","a")]
-        [InlineData("123","231")]
+        [InlineData("ab","ba")]
+        [InlineData("ab","ab")]
+        [InlineData("123","312")]
         [InlineData("waterbottle","erbottlewat")]
         [InlineData("Hello", "lloHe")]
         public void RotationCheck(string a, string b)
@@ -18,8 +20,7 @@ namespace Chapters.Tests.Chapter01
         
         [Theory]
         [InlineData("","a")]
-        [InlineData("ab","ab")]
-        [InlineData("123","312")]
+        [InlineData("123","213")]
         [InlineData("waterbottle","rebottlewat")]
         [InlineData("Hello", "lolHe")]
         public void NonRotationCheck(string a, string b)
