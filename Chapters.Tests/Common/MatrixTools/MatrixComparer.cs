@@ -5,8 +5,10 @@ namespace Chapters.Tests.Common.MatrixTools
 {
     public class MatrixComparer : IEqualityComparer<int[,]>
     {
-        public bool Equals(int[,] x, int[,] y)
+        public bool Equals(int[,]? x, int[,]? y)
         {
+            if (ReferenceEquals(x, y)) return true;
+            if (x == null || y == null) return false;
             CheckDimensions(x, y);
             var n = x.GetLength(0);
             var m = x.GetLength(1);
