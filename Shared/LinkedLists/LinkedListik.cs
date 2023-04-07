@@ -15,13 +15,12 @@ public class LinkedListik
     {
         var sb = new StringBuilder();
         var n = Head;
+        sb.Append(n.Value);
         while (n.Next != null)
         {
-            sb.Append(n.Value);
             n = n.Next;
+            sb.Append(n.Value);
         }
-
-        sb.Append(n.Value);
 
         return sb.ToString();
     }

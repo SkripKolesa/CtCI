@@ -72,4 +72,12 @@ public class RemoveDupsTests
         var clearedList = list.RemoveDuplicates();
         Assert.Equal(expected, clearedList.ToString());
     }
+    
+    [Theory]
+    [MemberData(nameof(_data))]
+    public void RemoveDuplicatesNoBuffer(LinkedListik list, string expected)
+    {
+        var clearedList = list.RemoveDuplicatesNoBuffer();
+        Assert.Equal(expected, clearedList.ToString());
+    }
 }

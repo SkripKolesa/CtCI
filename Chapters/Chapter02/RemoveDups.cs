@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Shared.LinkedLists;
 
 namespace Chapters.Chapter02;
+
 /// <summary>
 /// 2.1 Remove Dups: Write code to remove duplicates from an unsorted linked list.
 /// FOLLOW UP: How would you solve this problem if a temporary buffer is not allowed?
@@ -19,8 +20,41 @@ public static class RemoveDups
         while (n.Next != null)
         {
             n = n.Next;
-            if (metItems.Add(n.Value)) NodeHelper.AppendToTail(newHead, n.Value);
+            if (metItems.Add(n.Value))
+            {
+                NodeHelper.AppendToTail(newHead, n.Value);
+            }
         }
+
         return newList;
+    }
+
+    public static LinkedListik RemoveDuplicatesNoBuffer(this LinkedListik linkedList)
+    {
+        var n = linkedList.Head;
+        var newHead = new Node<int>(n.Value);
+        while (n != null)
+        {
+            var hasDuplicate = false;
+            var runner = newHead;
+            while (runner != null)
+            {
+                if (runner != n && runner.Value == n.Value)
+                {
+                    hasDuplicate = true;
+                }
+
+                runner = runner.Next;
+            }
+
+            if (!hasDuplicate)
+            {
+                NodeHelper.AppendToTail(newHead, n.Value);
+            }
+
+            n = n.Next;
+        }
+
+        return new LinkedListik(newHead);
     }
 }
