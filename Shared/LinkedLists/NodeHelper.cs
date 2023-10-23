@@ -5,7 +5,7 @@ namespace Shared.LinkedLists;
 public static class NodeHelper
 {
     /// <summary>
-    /// adds value to the end of the list
+    /// adds value to the end of the list and returns head
     /// </summary>
     /// <param name="head"></param>
     /// <param name="value"></param>

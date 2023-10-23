@@ -37,7 +37,7 @@ public static class RemoveDups
         {
             var hasDuplicate = false;
             var runner = newHead;
-            while (runner != null)
+            while (runner != null && !hasDuplicate)
             {
                 if (runner != n && runner.Value == n.Value)
                 {
