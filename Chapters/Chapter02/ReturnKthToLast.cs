@@ -4,12 +4,28 @@ using Shared.LinkedLists;
 namespace Chapters.Chapter02;
 
 /// <summary>
-/// Implement an algorithm to find the kth to last element of a singly linked list
+/// 2.2 Implement an algorithm to find the kth to last element of a singly linked list
 /// </summary>
 public static class ReturnKthToLast
 {
     public static int KthToLast(this MyLinkedList list, int k)
     {
-        throw new NotImplementedException();
-    } 
+        var current = list.Head;
+        var distanceRunner = current;
+        var distance = 0;
+        while (current.Next is not null)
+        {
+            current = current.Next;
+            if (distance < k)
+            {
+                distance++;
+            }
+            else
+            {
+                distanceRunner = distanceRunner.Next;
+            }
+        }
+
+        return distanceRunner.Value;
+    }
 }

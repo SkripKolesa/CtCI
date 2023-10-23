@@ -10,7 +10,13 @@ namespace Chapters.Tests.Chapter02;
 public class ReturnKthToLastTests
 {
     [Theory]
-    [InlineData(new int[] { 1, 2, 3, 4, 5 }, 2, 4)]
+    [InlineData(new int[] { 1, 2, 3, 4, 5 }, 2, 3)]
+    [InlineData(new int[] { 1, 2, 3, 4, 5 }, 0, 5)]
+    [InlineData(new int[] { 1, 2, 3, 4, 5 }, 1, 4)]
+    [InlineData(new int[] { 1, 2, 3 }, 2, 1)]
+    [InlineData(new int[] { 1, 2, 3 }, 4, 1)]
+    [InlineData(new int[] { 1, 2 }, 1, 1)]
+    [InlineData(new int[] { 1 }, 0, 1)]
     public void ReturnsKthToLast(int[] input, int k, int expected)
     {
         var head = new Node<int>(input[0]);
@@ -23,5 +29,4 @@ public class ReturnKthToLastTests
         var actual = list.KthToLast(k);
         Assert.Equal(expected, actual);
     }
-    
 }
