@@ -10,13 +10,13 @@ namespace Chapters.Chapter02;
 /// </summary>
 public static class RemoveDups
 {
-    public static LinkedListik RemoveDuplicates(this LinkedListik linkedList)
+    public static MyLinkedList RemoveDuplicates(this MyLinkedList myLinkedList)
     {
-        var n = linkedList.Head;
+        var n = myLinkedList.Head;
         var metItems = new HashSet<int>();
         metItems.Add(n.Value);
         var newHead = new Node<int>(n.Value);
-        var newList = new LinkedListik(newHead);
+        var newList = new MyLinkedList(newHead);
         while (n.Next != null)
         {
             n = n.Next;
@@ -29,9 +29,9 @@ public static class RemoveDups
         return newList;
     }
 
-    public static LinkedListik RemoveDuplicatesNoBuffer(this LinkedListik linkedList)
+    public static MyLinkedList RemoveDuplicatesNoBuffer(this MyLinkedList myLinkedList)
     {
-        var n = linkedList.Head;
+        var n = myLinkedList.Head;
         var newHead = new Node<int>(n.Value);
         while (n != null)
         {
@@ -55,6 +55,6 @@ public static class RemoveDups
             n = n.Next;
         }
 
-        return new LinkedListik(newHead);
+        return new MyLinkedList(newHead);
     }
 }

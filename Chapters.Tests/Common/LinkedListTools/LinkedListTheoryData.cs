@@ -7,7 +7,7 @@ using Xunit;
 
 namespace Chapters.Tests.Common.LinkedListTools;
 
-public class LinkedListTheoryData: TheoryData<LinkedListik,string>
+public class LinkedListTheoryData: TheoryData<MyLinkedList,string>
 {
     public LinkedListTheoryData(IEnumerable<int[]> inputInts, IEnumerable<int[]> outputInts)
     {
@@ -21,7 +21,7 @@ public class LinkedListTheoryData: TheoryData<LinkedListik,string>
             {
                 NodeHelper.AppendToTail(head, v);
             }
-            var list = new LinkedListik(head);
+            var list = new MyLinkedList(head);
             var output = String.Join(String.Empty, outputs[i]);
             Add(list, output);
         }

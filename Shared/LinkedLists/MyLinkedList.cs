@@ -2,11 +2,11 @@
 
 namespace Shared.LinkedLists;
 
-public class LinkedListik
+public class MyLinkedList
 {
     public Node<int> Head { get; set; }
 
-    public LinkedListik(Node<int> head)
+    public MyLinkedList(Node<int> head)
     {
         Head = head;
     }
