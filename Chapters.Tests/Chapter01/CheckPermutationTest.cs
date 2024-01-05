@@ -13,7 +13,7 @@ namespace Chapters.Tests.Chapter01
         [InlineData("aaassdf", "asasafd")]
         public void PermutationCheck(string a, string b)
         {
-            Assert.True(a.IsPermutationOf(b));
+            Assert.True(Solutions.IsPermutationOf(a, b));
         }
         
         [Theory]
@@ -24,7 +24,7 @@ namespace Chapters.Tests.Chapter01
         [InlineData("aaassdf", "asa safd")]
         public void NonPermutationCheck(string a, string b)
         {
-            Assert.False(a.IsPermutationOf(b));
+            Assert.False(Solutions.IsPermutationOf(a,b));
         }
     }
 }

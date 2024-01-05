@@ -15,7 +15,7 @@ namespace Chapters.Tests.Chapter01
         [InlineData("Hello", "lloHe")]
         public void RotationCheck(string a, string b)
         {
-            Assert.True(StringRotation.IsRotation(a,b));
+            Assert.True(Solutions.IsRotation(a,b));
         }
         
         [Theory]
@@ -25,7 +25,7 @@ namespace Chapters.Tests.Chapter01
         [InlineData("Hello", "lolHe")]
         public void NonRotationCheck(string a, string b)
         {
-            Assert.True(!StringRotation.IsRotation(a,b));
+            Assert.False(Solutions.IsRotation(a,b));
         }
     }
 }

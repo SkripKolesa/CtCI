@@ -9,17 +9,17 @@ namespace Chapters.Chapter01
     /// 1.1 Is Unique: Implement an algorithm to determine if a string has all unique characters.
     /// What if you can't use additional data structures?
     /// </summary>
-    public static class IsUnique
+    public static partial class Solutions
     {
-        public static bool HasOnlyUniqueChars(this string input,
-                                              Implementation implementation = Implementation.HashBased)
+        public static bool HasOnlyUniqueChars(string input,
+                                              IsUniqueImplementation implementation = IsUniqueImplementation.HashBased)
         {
             return implementation switch
             {
-                Implementation.Naive => Naive(input),
-                Implementation.NaiveParallel => NaiveParallel(input),
-                Implementation.HashBased => HashBased(input),
-                Implementation.BitBased => BitBased(input),
+                IsUniqueImplementation.Naive => Naive(input),
+                IsUniqueImplementation.NaiveParallel => NaiveParallel(input),
+                IsUniqueImplementation.HashBased => HashBased(input),
+                IsUniqueImplementation.BitBased => BitBased(input),
                 _ => throw new ArgumentException("Invalid enum value", nameof(implementation))
             };
         }
@@ -91,7 +91,7 @@ namespace Chapters.Chapter01
 
             return true;
         }
-        public enum Implementation
+        public enum IsUniqueImplementation
         {
             None = 0,
             Naive,

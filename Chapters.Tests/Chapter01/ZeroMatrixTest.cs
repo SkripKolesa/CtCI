@@ -89,7 +89,7 @@ namespace Chapters.Tests.Chapter01
         [MemberData(nameof(MatrixData))]
         public void ZeroTest(int[,] a, int[,] zeroedA)
         {
-            Assert.Equal(zeroedA, ZeroMatrix.SetZeros(a), new MatrixComparer());
+            Assert.Equal(zeroedA, Solutions.ZeroMatrix(a), new MatrixComparer());
         }
     }
 }

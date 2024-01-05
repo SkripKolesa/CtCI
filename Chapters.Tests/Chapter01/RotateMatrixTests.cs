@@ -57,7 +57,7 @@ namespace Chapters.Tests.Chapter01
         [MemberData(nameof(MatrixData))]
         public void RotateTest(int[,] a, int[,] rotatedA)
         {
-            Assert.Equal(rotatedA, RotateMatrix.Rotate90(a), new MatrixComparer());
+            Assert.Equal(rotatedA, Solutions.Rotate90(a), new MatrixComparer());
         }
     }
 }

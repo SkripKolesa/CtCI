@@ -8,11 +8,11 @@ namespace Chapters.Chapter02;
 /// 2.1 Remove Dups: Write code to remove duplicates from an unsorted linked list.
 /// FOLLOW UP: How would you solve this problem if a temporary buffer is not allowed?
 /// </summary>
-public static class RemoveDups
+public static partial class Solutions
 {
-    public static MyLinkedList RemoveDuplicates(this MyLinkedList myLinkedList)
+    public static MyLinkedList RemoveDuplicates(MyLinkedList list)
     {
-        var n = myLinkedList.Head;
+        var n = list.Head;
         var metItems = new HashSet<int>();
         metItems.Add(n.Value);
         var newHead = new Node<int>(n.Value);
@@ -29,9 +29,9 @@ public static class RemoveDups
         return newList;
     }
 
-    public static MyLinkedList RemoveDuplicatesNoBuffer(this MyLinkedList myLinkedList)
+    public static MyLinkedList RemoveDuplicatesNoBuffer(MyLinkedList list)
     {
-        var n = myLinkedList.Head;
+        var n = list.Head;
         var newHead = new Node<int>(n.Value);
         while (n != null)
         {

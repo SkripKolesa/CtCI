@@ -12,9 +12,9 @@ namespace Chapters.Chapter01
     /// smaller then the original string, your method should return the original string.
     /// You can assume the string has only uppercase and lowercase letters (a-z).
     /// </summary>
-    public static class StringCompression
+    public static partial class Solutions
     {
-        public static string Compress(this string str)
+        public static string Compress(string str)
         {
             if (str == null) throw new ArgumentNullException(nameof(str));
             var compressed = new List<(char ch, int n)>();

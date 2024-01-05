@@ -6,9 +6,9 @@ namespace Chapters.Chapter01
     /// 1.5 One Away: There are three types of edits that can be performed on strings: insert a character, remove a character,
     /// or replace a character. Given two strings, write a function to check if they are one edit (or zero edits) away.
     /// </summary>
-    public static class OneAway
+    public static partial class Solutions
     {
-        public static bool IsOneOrZeroAwayFrom(this string a, string b)
+        public static bool IsOneOrZeroAwayFrom(string a, string b)
         {
             if (a == null) throw new ArgumentNullException(nameof(a));
             if (b == null) throw new ArgumentNullException(nameof(a));

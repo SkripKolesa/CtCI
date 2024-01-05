@@ -13,7 +13,7 @@ namespace Chapters.Tests.Chapter01
         [InlineData("a")]
         public void ReturnsTrueForAllUnique(string input)
         {
-            Assert.True(input.HasOnlyUniqueChars());
+            Assert.True(Solutions.HasOnlyUniqueChars(input));
         }
 
         [Theory]
@@ -23,7 +23,7 @@ namespace Chapters.Tests.Chapter01
         [InlineData("121")]
         public void ReturnsFalseForNotAllUnique(string input)
         {
-            Assert.False(input.HasOnlyUniqueChars());
+            Assert.False(Solutions.HasOnlyUniqueChars(input));
         }
     }
 }

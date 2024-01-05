@@ -16,7 +16,7 @@ namespace Chapters.Tests.Chapter01
         [InlineData("BBcBBB","B2cB3")]
         public void TestCompress(string str, string compressed)
         {
-            Assert.Equal(compressed, str.Compress());
+            Assert.Equal(compressed, Solutions.Compress(str));
         }
     }
 }

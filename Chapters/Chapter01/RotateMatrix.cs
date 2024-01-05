@@ -8,7 +8,7 @@ namespace Chapters.Chapter01
     /// 1.7 Rotate Matrix: Given an image represented by NxN matrix, where each pixel in the image is 4 bytes,
     /// write a method to rotate the image by 90 degrees. Can you do this in place?
     /// </summary>
-    public static class RotateMatrix
+    public static partial class Solutions
     {
         public static int[,] Rotate90(int[,] a)
         {

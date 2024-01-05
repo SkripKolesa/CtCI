@@ -24,7 +24,7 @@ namespace Chapters.Tests.Chapter01
                 chInput[i] = arr[i];
             }
 
-            URLify.Replace(chInput, arr.Length);
+            Solutions.URLify(chInput, arr.Length);
             var actual = new string(chInput);
             Assert.Equal(input.Replace(" ", "%20"), actual);
         }

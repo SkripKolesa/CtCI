@@ -14,7 +14,7 @@ namespace Chapters.Tests.Chapter01
         [InlineData("shalash")]
         public void PalindromePermutationCanBePalindrome(string input)
         {
-            Assert.True(input.CanBePalindrome());
+            Assert.True(Solutions.CanBePalindrome(input));
         }
 
         [Theory]
@@ -24,7 +24,7 @@ namespace Chapters.Tests.Chapter01
         [InlineData("shu shu shu")]
         public void NonPalindromePermutationIsNot(string input)
         {
-            Assert.False(input.CanBePalindrome());
+            Assert.False(Solutions.CanBePalindrome(input));
         }
     }
 }

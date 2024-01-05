@@ -9,9 +9,9 @@ namespace Chapters.Chapter01
     /// A palindrome is a word or phrase that is the same towards and backwards. A permutation is a rearrangement
     /// of letters. The palindrome does not need to be limited to just dictionary words.
     /// </summary>
-    public static class Palindrome
+    public static partial class Solutions
     {
-        public static bool CanBePalindrome(this string input)
+        public static bool CanBePalindrome(string input)
         {
             var pairlessItems = new Dictionary<char, bool>();
             foreach (var ch in input.ToLower())

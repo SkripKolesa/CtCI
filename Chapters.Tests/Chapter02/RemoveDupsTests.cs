@@ -69,7 +69,7 @@ public class RemoveDupsTests
     [MemberData(nameof(_data))]
     public void RemoveDuplicates(MyLinkedList list, string expected)
     {
-        var clearedList = list.RemoveDuplicates();
+        var clearedList = Solutions.RemoveDuplicates(list);
         Assert.Equal(expected, clearedList.ToString());
     }
     
@@ -77,7 +77,7 @@ public class RemoveDupsTests
     [MemberData(nameof(_data))]
     public void RemoveDuplicatesNoBuffer(MyLinkedList list, string expected)
     {
-        var clearedList = list.RemoveDuplicatesNoBuffer();
+        var clearedList = Solutions.RemoveDuplicatesNoBuffer(list);
         Assert.Equal(expected, clearedList.ToString());
     }
 }

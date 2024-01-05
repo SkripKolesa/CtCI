@@ -26,7 +26,7 @@ public class ReturnKthToLastTests
         }
 
         var list = new MyLinkedList(head);
-        var actual = list.KthToLast(k);
+        var actual = Solutions.KthToLast(list,k);
         Assert.Equal(expected, actual);
     }
 }

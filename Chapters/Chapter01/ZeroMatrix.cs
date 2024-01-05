@@ -6,9 +6,9 @@ namespace Chapters.Chapter01
     /// <summary>
     /// 1.8 Write an algorithm such that if an element in an MxN matrix is 0, its entire row and column are set to 0
     /// </summary>
-    public static class ZeroMatrix
+    public static partial class Solutions
     {
-        public static int[,] SetZeros(int[,] input)
+        public static int[,] ZeroMatrix(int[,] input)
         {
             var result = new int[input.GetLength(0), input.GetLength(1)];
             var zeroCols = new HashSet<int>();

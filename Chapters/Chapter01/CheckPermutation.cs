@@ -6,15 +6,15 @@ namespace Chapters.Chapter01
     /// <summary>
     /// 1.2 Check Permutation: Given two strings, write a method to decide if one is a permutation of the other.
     /// </summary>
-    public static class CheckPermutation
+    public static partial class Solutions
     {
-        public static bool IsPermutationOf(this string a, string b,
-                                           Implementation implementation = Implementation.HashBased)
+        public static bool IsPermutationOf(string a, string b,
+                                           PermutationCheckImplementation implementation = PermutationCheckImplementation.HashBased)
         {
             return implementation switch
             {
-                Implementation.SortBased => SortBased(a, b),
-                Implementation.HashBased => HashBased(a, b),
+                PermutationCheckImplementation.SortBased => SortBased(a, b),
+                PermutationCheckImplementation.HashBased => HashBased(a, b),
                 _ => throw new ArgumentException("Invalid enum value", nameof(implementation))
             };
         }
@@ -64,7 +64,7 @@ namespace Chapters.Chapter01
             return true;
         }
 
-        public enum Implementation
+        public enum PermutationCheckImplementation
         {
             None = 0,
             SortBased,

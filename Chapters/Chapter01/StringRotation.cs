@@ -7,7 +7,7 @@ namespace Chapters.Chapter01
     /// Given two strings, s1 and s2, write code to check if s2 is a rotation of s1 using only one call to isSubstring.
     /// (e.g., "waterbottle" is a rotation of "erbottlewat").
     /// </summary>
-    public static class StringRotation
+    public static partial class Solutions
     {
         public static bool IsRotation(string s1, string s2)
         {

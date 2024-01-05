@@ -19,8 +19,8 @@ namespace Chapters.Tests.Chapter01
         [InlineData("pale", "pake")]
         public void IsOneAway(string a, string b)
         {
-            Assert.True(a.IsOneOrZeroAwayFrom(b));
-            Assert.True(b.IsOneOrZeroAwayFrom(a));
+            Assert.True(Solutions.IsOneOrZeroAwayFrom(a, b));
+            Assert.True(Solutions.IsOneOrZeroAwayFrom(b,a));
         }
 
         [Theory]
@@ -32,8 +32,8 @@ namespace Chapters.Tests.Chapter01
         [InlineData("paka", "pa")]
         public void NotIsOneAway(string a, string b)
         {
-            Assert.False(a.IsOneOrZeroAwayFrom(b));
-            Assert.False(b.IsOneOrZeroAwayFrom(a));
+            Assert.False(Solutions.IsOneOrZeroAwayFrom(a, b));
+            Assert.False(Solutions.IsOneOrZeroAwayFrom(b,a));
         }
     }
 }
