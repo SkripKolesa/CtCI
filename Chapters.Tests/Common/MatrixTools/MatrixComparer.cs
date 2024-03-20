@@ -9,7 +9,7 @@ namespace Chapters.Tests.Common.MatrixTools
         {
             if (ReferenceEquals(x, y)) return true;
             if (x == null || y == null) return false;
-            CheckDimensions(x, y);
+            if (!CheckDimensions(x, y)) return false;
             var n = x.GetLength(0);
             var m = x.GetLength(1);
             for (int i = 0; i < n; i++)
@@ -28,13 +28,15 @@ namespace Chapters.Tests.Common.MatrixTools
             return obj.GetHashCode();
         }
 
-        private void CheckDimensions(int[,] x, int[,] y)
+        private bool CheckDimensions(int[,] x, int[,] y)
         {
             if (x.GetLength(0) != y.GetLength(0) ||
                 x.GetLength(1) != y.GetLength(1))
             {
-                throw new ArgumentException("matrices dimensions don't match");
+                return false;
             }
+
+            return true;
         }
     }
 }

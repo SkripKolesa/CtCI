@@ -18,6 +18,7 @@ public class MyLinkedList
         sb.Append(n.Value);
         while (n.Next != null)
         {
+            sb.Append(',');
             n = n.Next;
             sb.Append(n.Value);
         }

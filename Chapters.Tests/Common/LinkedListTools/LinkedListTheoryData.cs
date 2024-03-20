@@ -22,7 +22,7 @@ public class LinkedListTheoryData: TheoryData<MyLinkedList,string>
                 NodeHelper.AppendToTail(head, v);
             }
             var list = new MyLinkedList(head);
-            var output = String.Join(String.Empty, outputs[i]);
+            var output = String.Join(',', outputs[i]);
             Add(list, output);
         }
     }
