@@ -43,7 +43,7 @@ public static partial class Solutions
         {
             if (current.Next == node)
             {
-                preNode = current.Next;
+                preNode = current;
                 break;
             }
 

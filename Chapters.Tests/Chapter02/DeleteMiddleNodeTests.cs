@@ -10,6 +10,8 @@ public class DeleteMiddleNodeTests
 {
     [Theory]
     [InlineData(new[] { 1, 2, 3, 4 }, 3, new[] { 1, 2, 4 })]
+    [InlineData(new[] { 1, 2, 3, 4 }, 2, new[] { 1, 3, 4 })]
+    [InlineData(new[] { 1, 2, 3, 4, 5 }, 4, new[] { 1, 2, 3, 5 })]
     public void DeletesMiddleNode(int[] input, int valueToDelete, int[] expected)
     {
         var head = new Node<int>(input.First());
