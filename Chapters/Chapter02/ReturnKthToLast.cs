@@ -8,9 +8,9 @@ namespace Chapters.Chapter02;
 /// </summary>
 public static partial class Solutions
 {
-    public static int KthToLast(MyLinkedList list, int k)
+    public static T KthToLast<T>(Node<T> head, int k)
     {
-        var current = list.Head;
+        var current = head;
         var distanceRunner = current;
         var distance = 0;
         while (current.Next is not null)

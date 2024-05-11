@@ -63,21 +63,21 @@ public class RemoveDupsTests
                                                       }
                                                   };
 
-    public static readonly LinkedListTheoryData _data = new LinkedListTheoryData(_inputs, _outputs);
+    public static readonly LinkedListTheoryData<int> _data = new(_inputs, _outputs);
 
     [Theory]
     [MemberData(nameof(_data))]
-    public void RemoveDuplicates(MyLinkedList list, string expected)
+    public void RemoveDuplicates(Node<int> head, Node<int> expected)
     {
-        var clearedList = Solutions.RemoveDuplicates(list);
-        Assert.Equal(expected, clearedList.ToString());
+        var clearedList = Solutions.RemoveDuplicates(head);
+        Assert.Equal(NodeHelper.DebugString(expected), NodeHelper.DebugString(clearedList));
     }
     
     [Theory]
     [MemberData(nameof(_data))]
-    public void RemoveDuplicatesNoBuffer(MyLinkedList list, string expected)
+    public void RemoveDuplicatesNoBuffer(Node<int> head, Node<int> expected)
     {
-        var clearedList = Solutions.RemoveDuplicatesNoBuffer(list);
-        Assert.Equal(expected, clearedList.ToString());
+        var clearedList = Solutions.RemoveDuplicatesNoBuffer(head);
+        Assert.Equal(NodeHelper.DebugString(expected), NodeHelper.DebugString(clearedList));
     }
 }

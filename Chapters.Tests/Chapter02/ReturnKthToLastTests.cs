@@ -19,14 +19,8 @@ public class ReturnKthToLastTests
     [InlineData(new int[] { 1 }, 0, 1)]
     public void ReturnsKthToLast(int[] input, int k, int expected)
     {
-        var head = new Node<int>(input[0]);
-        foreach (var v in input.Skip(1))
-        {
-            NodeHelper.AppendToTail(head, v);
-        }
-
-        var list = new MyLinkedList(head);
-        var actual = Solutions.KthToLast(list,k);
+        var head = NodeHelper.FromEnumerable(input);
+        var actual = Solutions.KthToLast(head, k);
         Assert.Equal(expected, actual);
     }
 }

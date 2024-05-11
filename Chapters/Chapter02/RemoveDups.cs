@@ -10,36 +10,34 @@ namespace Chapters.Chapter02;
 /// </summary>
 public static partial class Solutions
 {
-    public static MyLinkedList RemoveDuplicates(MyLinkedList list)
+    public static Node<T> RemoveDuplicates<T>(Node<T> head)
     {
-        var n = list.Head;
-        var metItems = new HashSet<int>();
-        metItems.Add(n.Value);
-        var newHead = new Node<int>(n.Value);
-        var newList = new MyLinkedList(newHead);
-        while (n.Next != null)
+        var current = head;
+        var metItems = new HashSet<T> { head.Value };
+        var newHead = new Node<T>(head.Value);
+        while (current.Next is not null)
         {
-            n = n.Next;
-            if (metItems.Add(n.Value))
+            current = current.Next;
+            if (metItems.Add(current.Value))
             {
-                NodeHelper.AppendToTail(newHead, n.Value);
+                NodeHelper.AppendToTail(newHead, current.Value);
             }
         }
 
-        return newList;
+        return newHead;
     }
 
-    public static MyLinkedList RemoveDuplicatesNoBuffer(MyLinkedList list)
+    public static Node<T> RemoveDuplicatesNoBuffer<T>(Node<T> head)
     {
-        var n = list.Head;
-        var newHead = new Node<int>(n.Value);
-        while (n != null)
+        var current = head;
+        var newHead = new Node<T>(head.Value);
+        while (current is not null)
         {
             var hasDuplicate = false;
             var runner = newHead;
             while (runner != null && !hasDuplicate)
             {
-                if (runner != n && runner.Value == n.Value)
+                if (runner.Value.Equals(current.Value))
                 {
                     hasDuplicate = true;
                 }
@@ -49,12 +47,12 @@ public static partial class Solutions
 
             if (!hasDuplicate)
             {
-                NodeHelper.AppendToTail(newHead, n.Value);
+                NodeHelper.AppendToTail(newHead, current.Value);
             }
 
-            n = n.Next;
+            current = current.Next;
         }
 
-        return new MyLinkedList(newHead);
+        return newHead;
     }
 }

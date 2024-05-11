@@ -3,7 +3,7 @@
 namespace Chapters.Chapter02;
 
 /// <summary>
-/// Implement an algorithm to delete a node in the middle (i.e., any node but the first and last node,
+/// 2.3 Implement an algorithm to delete a node in the middle (i.e., any node but the first and last node,
 /// note necessarily the exact middle) of a singly linked list, given only access to that node.
 /// EXAMPLE
 /// Input: the node c from the linked list a->b->c->d->e->f
@@ -11,34 +11,34 @@ namespace Chapters.Chapter02;
 /// </summary>
 public static partial class Solutions
 {
-    public static void DeleteMiddleNode(MyLinkedList list, int value)
+    public static void DeleteMiddleNode<T>(Node<T> head, T value)
     {
-        var node = GetFirstNodeByValue(list, value);
-        DeleteMiddleNode(list, node);
+        var node = GetFirstNodeByValue(head, value);
+        DeleteMiddleNode(head, node);
     }
 
-    private static Node<int> GetFirstNodeByValue(MyLinkedList list, int value)
+    private static Node<T> GetFirstNodeByValue<T>(Node<T> head, T value)
     {
-        var current = list.Head;
+        var current = head;
         while (current != null)
         {
-            if (current.Value == value) return current;
+            if (current.Value.Equals(value)) return current;
             current = current.Next;
         }
 
         return null;
     }
 
-    private static void DeleteMiddleNode(MyLinkedList list, Node<int> node)
+    private static void DeleteMiddleNode<T>(Node<T> head, Node<T> node)
     {
-        var preNode = FindPreviousToNode(list, node);
+        var preNode = FindPreviousToNode(head, node);
         preNode.Next = node.Next;
     }
 
-    private static Node<int> FindPreviousToNode(MyLinkedList list, Node<int> node)
+    private static Node<T> FindPreviousToNode<T>(Node<T> head, Node<T> node)
     {
-        var current = list.Head;
-        Node<int> preNode = null;
+        var current = head;
+        Node<T> preNode = null;
         while (current.Next != null)
         {
             if (current.Next == node)

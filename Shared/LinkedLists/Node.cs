@@ -9,4 +9,9 @@ public class Node<T>
     {
         Value = value;
     }
+
+    public Node()
+    {
+        
+    }
 }

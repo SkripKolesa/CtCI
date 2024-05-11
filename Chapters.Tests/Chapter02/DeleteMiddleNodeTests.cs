@@ -14,15 +14,10 @@ public class DeleteMiddleNodeTests
     [InlineData(new[] { 1, 2, 3, 4, 5 }, 4, new[] { 1, 2, 3, 5 })]
     public void DeletesMiddleNode(int[] input, int valueToDelete, int[] expected)
     {
-        var head = new Node<int>(input.First());
-        foreach (var v in input.Skip(1))
-        {
-            NodeHelper.AppendToTail(head, v);
-        }
-        var list = new MyLinkedList(head);
+        var head = NodeHelper.FromEnumerable(input);
         
-        Solutions.DeleteMiddleNode(list, valueToDelete);
+        Solutions.DeleteMiddleNode(head, valueToDelete);
         
-        Assert.Equal(String.Join(',', expected), list.ToString());
+        Assert.Equal(String.Join(',', expected), NodeHelper.DebugString(head));
     }
 }

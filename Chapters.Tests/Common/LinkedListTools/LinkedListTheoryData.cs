@@ -1,29 +1,23 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Shared.LinkedLists;
 using Xunit;
 
 namespace Chapters.Tests.Common.LinkedListTools;
 
-public class LinkedListTheoryData: TheoryData<MyLinkedList,string>
+public class LinkedListTheoryData<T> : TheoryData<Node<T>, Node<T>>
 {
-    public LinkedListTheoryData(IEnumerable<int[]> inputInts, IEnumerable<int[]> outputInts)
+    public LinkedListTheoryData(IEnumerable<T[]> inputInts, IEnumerable<T[]> outputInts)
     {
         var inputs = inputInts.ToArray();
         var outputs = outputInts.ToArray();
         for (int i = 0; i < inputs.Length; i++)
         {
             var input = inputs[i];
-            var head = new Node<int>(input[0]);
-            foreach (var v in input.Skip(1))
-            {
-                NodeHelper.AppendToTail(head, v);
-            }
-            var list = new MyLinkedList(head);
-            var output = String.Join(',', outputs[i]);
-            Add(list, output);
+            var output = outputs[i];
+            var inputHead = NodeHelper.FromEnumerable(input);
+            var outputHead = NodeHelper.FromEnumerable(output);
+            Add(inputHead, outputHead);
         }
     }
 }
