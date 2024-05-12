@@ -27,9 +27,11 @@ public class DeleteMiddleNodeTests
             NodeHelper.AppendToTail(head, n);
         }
 
+        var expectedHead = NodeHelper.FromEnumerable(expected);
+
         if (nodeToDelete is null) throw new InvalidOperationException("test didn't acquired data");
         Solutions.DeleteMiddleNode(nodeToDelete);
 
-        Assert.Equal(String.Join(',', expected), NodeHelper.DebugString(head));
+        Assert.Equal(NodeHelper.DebugString(expectedHead), NodeHelper.DebugString(head));
     }
 }

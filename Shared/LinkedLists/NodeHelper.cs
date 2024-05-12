@@ -61,7 +61,7 @@ public static class NodeHelper
         return head;
     }
 
-    public static string DebugString<T>(Node<T> head, string delimiter = ",")
+    public static string DebugString<T>(Node<T> head, string delimiter = "->")
     {
         var values = new List<T>();
         var current = head;
