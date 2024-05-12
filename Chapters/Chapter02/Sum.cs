@@ -45,6 +45,11 @@ public partial class Solutions
             isAnyLeft = currentA is not null || currentB is not null;
         }
 
+        if (overflowDigit > 0)
+        {
+            NodeHelper.AppendToTail(resultHead, new Node<byte>(overflowDigit));
+        }
+
         return resultHead;
     }
 }

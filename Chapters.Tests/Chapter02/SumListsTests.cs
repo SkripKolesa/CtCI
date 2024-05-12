@@ -12,6 +12,8 @@ public class SumListsTests
     [InlineData(new byte[] { 1 }, new byte[] { 2 }, new byte[] { 3 })]
     [InlineData(new byte[] { 1, 2 }, new byte[] { 2 }, new byte[] { 3, 2 })]
     [InlineData(new byte[] { 5, 5, 2 }, new byte[] { 5, 4 }, new byte[] { 0, 0, 3 })]
+    [InlineData(new byte[] { 9, 7, 8 }, new byte[] { 6, 8, 5 }, new byte[] { 5, 6, 4, 1 })]
+    [InlineData(new byte[] { 9 }, new byte[] { 1 }, new byte[] { 0, 1 })]
     public void ListSumTest(byte[] a, byte[] b, byte[] result)
     {
         var headA = NodeHelper.FromEnumerable(a);
