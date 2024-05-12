@@ -17,7 +17,7 @@ public static class NodeHelper
         return AppendToTail(head, node);
     }
 
-    private static Node<T> AppendToTail<T>(Node<T> head, Node<T> node)
+    public static Node<T> AppendToTail<T>(Node<T> head, Node<T> node)
     {
         while (head.Next != null) head = head.Next;
         head.Next = node;

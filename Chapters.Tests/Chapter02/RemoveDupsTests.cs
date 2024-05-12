@@ -69,15 +69,15 @@ public class RemoveDupsTests
     [MemberData(nameof(_data))]
     public void RemoveDuplicates(Node<int> head, Node<int> expected)
     {
-        var clearedList = Solutions.RemoveDuplicates(head);
-        Assert.Equal(NodeHelper.DebugString(expected), NodeHelper.DebugString(clearedList));
+        Solutions.RemoveDuplicates(head);
+        Assert.Equal(NodeHelper.DebugString(expected), NodeHelper.DebugString(head));
     }
     
     [Theory]
     [MemberData(nameof(_data))]
     public void RemoveDuplicatesNoBuffer(Node<int> head, Node<int> expected)
     {
-        var clearedList = Solutions.RemoveDuplicatesNoBuffer(head);
-        Assert.Equal(NodeHelper.DebugString(expected), NodeHelper.DebugString(clearedList));
+        Solutions.RemoveDuplicatesNoBuffer(head);
+        Assert.Equal(NodeHelper.DebugString(expected), NodeHelper.DebugString(head));
     }
 }

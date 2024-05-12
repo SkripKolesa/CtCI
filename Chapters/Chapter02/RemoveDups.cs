@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Shared.LinkedLists;
 
 namespace Chapters.Chapter02;
@@ -10,49 +10,43 @@ namespace Chapters.Chapter02;
 /// </summary>
 public static partial class Solutions
 {
-    public static Node<T> RemoveDuplicates<T>(Node<T> head)
+    public static void RemoveDuplicates<T>(Node<T> head)
     {
         var current = head;
+        var prev = current;
         var metItems = new HashSet<T> { head.Value };
-        var newHead = new Node<T>(head.Value);
         while (current.Next is not null)
         {
             current = current.Next;
-            if (metItems.Add(current.Value))
+            if (!metItems.Add(current.Value))
             {
-                NodeHelper.AppendToTail(newHead, current.Value);
+                prev.Next = current.Next;
+            }
+            else
+            {
+                prev = prev.Next;
             }
         }
-
-        return newHead;
     }
 
-    public static Node<T> RemoveDuplicatesNoBuffer<T>(Node<T> head)
+    public static void RemoveDuplicatesNoBuffer<T>(Node<T> head)
     {
         var current = head;
-        var newHead = new Node<T>(head.Value);
-        while (current is not null)
+        while (current != null)
         {
-            var hasDuplicate = false;
-            var runner = newHead;
-            while (runner != null && !hasDuplicate)
+            var runner = current;
+            while (runner.Next != null)
             {
-                if (runner.Value.Equals(current.Value))
+                if (runner.Next.Value.Equals(current.Value))
                 {
-                    hasDuplicate = true;
+                    runner.Next = runner.Next.Next;
                 }
-
-                runner = runner.Next;
+                else
+                {
+                    runner = runner.Next;
+                }
             }
-
-            if (!hasDuplicate)
-            {
-                NodeHelper.AppendToTail(newHead, current.Value);
-            }
-
             current = current.Next;
         }
-
-        return newHead;
     }
 }

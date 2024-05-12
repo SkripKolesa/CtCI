@@ -11,45 +11,9 @@ namespace Chapters.Chapter02;
 /// </summary>
 public static partial class Solutions
 {
-    public static void DeleteMiddleNode<T>(Node<T> head, T value)
+    public static void DeleteMiddleNode<T>(Node<T> nodeToDelete)
     {
-        var node = GetFirstNodeByValue(head, value);
-        DeleteMiddleNode(head, node);
-    }
-
-    private static Node<T> GetFirstNodeByValue<T>(Node<T> head, T value)
-    {
-        var current = head;
-        while (current != null)
-        {
-            if (current.Value.Equals(value)) return current;
-            current = current.Next;
-        }
-
-        return null;
-    }
-
-    private static void DeleteMiddleNode<T>(Node<T> head, Node<T> node)
-    {
-        var preNode = FindPreviousToNode(head, node);
-        preNode.Next = node.Next;
-    }
-
-    private static Node<T> FindPreviousToNode<T>(Node<T> head, Node<T> node)
-    {
-        var current = head;
-        Node<T> preNode = null;
-        while (current.Next != null)
-        {
-            if (current.Next == node)
-            {
-                preNode = current;
-                break;
-            }
-
-            current = current.Next;
-        }
-
-        return preNode;
+        nodeToDelete.Value = nodeToDelete.Next.Value;
+        nodeToDelete.Next = nodeToDelete.Next.Next;
     }
 }
