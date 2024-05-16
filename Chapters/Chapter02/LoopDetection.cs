@@ -20,37 +20,33 @@ public static partial class Solutions
         loopNode = null;
 
         var runner = head;
-        var fastRunner = head.Next;
+        var fastRunner = head;
         var isLoop = false;
-        int counter = 0;
         while (runner is not null && fastRunner is not null)
         {
-            counter++;
             runner = runner.Next;
             fastRunner = fastRunner?.Next?.Next;
-            if (fastRunner is null)
-            {
-                isLoop = false;
-                break;
-            }
-
-            if (fastRunner.Next == runner || fastRunner == runner || runner.Next == fastRunner)
+            if (fastRunner == runner && runner != null)
             {
                 isLoop = true;
                 break;
             }
         }
 
+        //h = head size, l = loop size, x = position in the loop, k = position in the list
+        // h + x = k; h + l + x = 2k => l = k => l-x = h. So the distance to he beginning of the loop is same from
+        //the beginning and from the collision point => we can run again from head and collision point and meet at it
         if (isLoop)
         {
-            var stepsToTail = (counter + 1) / 2;
-            while (stepsToTail > 0)
+            var collisionPoint = runner;
+            runner = head;
+            while (runner != collisionPoint)
             {
                 runner = runner.Next;
-                stepsToTail--;
+                collisionPoint = collisionPoint.Next;
             }
 
-            loopNode = runner.Next;
+            loopNode = runner;
         }
 
         return isLoop;
